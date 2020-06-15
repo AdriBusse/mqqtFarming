@@ -1,0 +1,19 @@
+{
+  "name": "farming_simulation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "RunSensors": "concurrently \" node sensors/humidity_sensor.js\" \"node sensors/tmp_sensor.js\" \"node sensors/light_sensor.js\"",
+    "RunSubscriber": "concurrently \" node Subscribers/Fan.js\" \"node Subscribers/Light.js\" \"node Subscribers/WateringPump.js\"",
+    "RunAll": "concurrently \" npm run RunSensors\" \"npm run RunSubscriber\" \" node Subscribers/Dashboard.js\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^5.2.0",
+    "moment": "^2.26.0",
+    "mqtt": "^4.1.0"
+  }
+}
